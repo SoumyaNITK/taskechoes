@@ -8,7 +8,7 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #ff758c, #ff7eb3);
+      background: linear-gradient(to right, #36d1dc, #5b86e5);
       color: white;
       display: flex;
       justify-content: center;
@@ -18,19 +18,18 @@
     }
 
     .container {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
       border-radius: 20px;
       padding: 30px;
       max-width: 500px;
       width: 100%;
-      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
     }
 
     h1 {
       text-align: center;
       margin-bottom: 20px;
-      font-weight: bold;
     }
 
     input[type="text"] {
@@ -40,20 +39,20 @@
       border-radius: 10px;
       font-size: 16px;
       margin-bottom: 15px;
-      box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.5);
+      box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.4);
     }
 
     button {
       width: 100%;
       padding: 12px;
-      background: linear-gradient(to right, #a18cd1, #fbc2eb);
+      background: linear-gradient(to right, #ff512f, #dd2476);
       border: none;
       border-radius: 10px;
       font-size: 16px;
       color: white;
       font-weight: bold;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: 0.3s ease;
     }
 
     button:hover {
@@ -68,7 +67,7 @@
     }
 
     li {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.15);
       margin-bottom: 10px;
       padding: 10px 15px;
       border-radius: 10px;
@@ -80,7 +79,7 @@
     }
 
     li:hover {
-      background: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.25);
     }
 
     li.completed {
@@ -104,7 +103,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>🌈 TaskEchoes</h1>
+    <h1>🌟 TaskEchoes</h1>
     <input type="text" id="taskInput" placeholder="Add a task..." />
     <button onclick="addTask()">Add Task</button>
     <ul id="taskList"></ul>
@@ -114,6 +113,7 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
     import { getDatabase, ref, push, onValue, update, remove } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
 
+    // ✅ YOUR EXACT CONFIG + databaseURL added
     const firebaseConfig = {
       apiKey: "AIzaSyCjewvBWX8zYkNHqqkTj1bpwCctntRwKSI",
       authDomain: "taskechoes.firebaseapp.com",
@@ -131,16 +131,16 @@
     function renderTasks(snapshot) {
       taskList.innerHTML = "";
       if (!snapshot.exists()) {
-        const emptyMessage = document.createElement("li");
-        emptyMessage.textContent = "No tasks yet!";
-        emptyMessage.style.opacity = 0.7;
-        taskList.appendChild(emptyMessage);
+        const emptyMsg = document.createElement("li");
+        emptyMsg.textContent = "No tasks yet.";
+        emptyMsg.style.opacity = 0.6;
+        taskList.appendChild(emptyMsg);
         return;
       }
 
-      snapshot.forEach(childSnapshot => {
-        const task = childSnapshot.val();
-        const key = childSnapshot.key;
+      snapshot.forEach(child => {
+        const task = child.val();
+        const key = child.key;
 
         const li = document.createElement("li");
         li.textContent = task.text;
