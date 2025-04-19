@@ -13,19 +13,19 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right top, #00c6ff, #0072ff);
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
+      color: #eee;
     }
 
     .container {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(15px);
+      background: rgba(30, 30, 30, 0.6);
+      backdrop-filter: blur(20px);
       border-radius: 20px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
       padding: 40px;
       max-width: 500px;
       width: 90%;
@@ -36,6 +36,7 @@
       margin-bottom: 25px;
       font-size: 2.2rem;
       letter-spacing: 1px;
+      color: #fff;
     }
 
     input[type="text"] {
@@ -45,20 +46,20 @@
       border: none;
       border-radius: 12px;
       outline: none;
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.05);
       color: #fff;
       margin-bottom: 15px;
       transition: 0.3s ease;
     }
 
     input[type="text"]::placeholder {
-      color: #ddd;
+      color: #aaa;
     }
 
     button {
       width: 100%;
       padding: 14px;
-      background: linear-gradient(to right, #ff416c, #ff4b2b);
+      background: linear-gradient(to right, #8e2de2, #4a00e0);
       border: none;
       border-radius: 12px;
       color: #fff;
@@ -70,7 +71,7 @@
 
     button:hover {
       transform: scale(1.03);
-      box-shadow: 0 0 20px rgba(255, 75, 43, 0.5);
+      box-shadow: 0 0 15px rgba(138, 43, 226, 0.6);
     }
 
     ul {
@@ -80,7 +81,7 @@
     }
 
     li {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.05);
       margin-bottom: 12px;
       padding: 14px 16px;
       border-radius: 10px;
@@ -88,28 +89,29 @@
       justify-content: space-between;
       align-items: center;
       transition: background 0.3s ease;
+      color: #eee;
     }
 
     li:hover {
-      background: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.08);
     }
 
     li.completed {
       text-decoration: line-through;
-      opacity: 0.6;
+      opacity: 0.5;
     }
 
     .delete-btn {
       background: transparent;
       border: none;
-      color: #ffcccc;
+      color: #ff9999;
       font-size: 20px;
       cursor: pointer;
       transition: color 0.2s ease;
     }
 
     .delete-btn:hover {
-      color: #ff5e5e;
+      color: #ff4d4d;
     }
 
     @media (max-width: 600px) {
@@ -125,8 +127,8 @@
 </head>
 <body>
   <div class="container">
-    <h1>📝 TaskEchoes</h1>
-    <input type="text" id="taskInput" placeholder="What's on your mind?" />
+    <h1>🌘 TaskEchoes</h1>
+    <input type="text" id="taskInput" placeholder="Add a new task..." />
     <button onclick="addTask()">➕ Add Task</button>
     <ul id="taskList"></ul>
   </div>
